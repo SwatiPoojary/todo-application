@@ -23,6 +23,16 @@ Html
 Thymeleaf
 Docker
 
+## Deafult users
+Two deafult users are added:
+#### User1:
+username: test
+password: pwd123
+
+#### User2:
+username: user
+password: pwd
+
 ## Production Ready
 
 Dockerfile is present to dockerzie the application
