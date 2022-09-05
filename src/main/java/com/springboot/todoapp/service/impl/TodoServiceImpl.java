@@ -3,7 +3,6 @@ package com.springboot.todoapp.service.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,11 +29,8 @@ public class TodoServiceImpl implements TodoService{
 	public List<Todo> getTodoList() throws IllegalArgumentException{
 		List<Todo> todoList = new ArrayList<>();
 		User user = userRepository.findByUserName(getUserName()).orElseThrow(() -> new IllegalArgumentException("No logged in user found!"));
-		System.out.println("tod list ---------------------------");
-		System.out.println(user.getId());
 		
 		todoList = todoRepository.queryBy(user.getId());
-		System.out.println(todoList);
 		
 		return todoList;
 	}
@@ -46,7 +42,6 @@ public class TodoServiceImpl implements TodoService{
 
 	@Override
 	public void saveTodo(Todo todo) throws IllegalArgumentException {
-		String username = getUserName();
 		
 		User user = userRepository.findByUserName(getUserName()).orElseThrow(() -> new IllegalArgumentException("No logged in user found!"));
 		
@@ -66,8 +61,6 @@ public class TodoServiceImpl implements TodoService{
 
 	@Override
 	public void updateTodo(Todo todo) throws IllegalArgumentException {
-		// TODO Auto-generated method stub
-		String username = getUserName();
 		
 		User user = userRepository.findByUserName(getUserName()).orElseThrow(() -> new IllegalArgumentException("No logged in user found!"));
 		
